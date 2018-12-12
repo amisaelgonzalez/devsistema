@@ -4,7 +4,7 @@ require_once '../config/core.php';
 
 $orderId = $_POST['orderId'];
 
-$sql = "SELECT order_date, client_name, client_contact, sub_total, vat, total_amount, discount, grand_total, paid, due, calle, colina, ciudad FROM orders_user WHERE order_id = $orderId";
+$sql = "SELECT order_date, client_name, client_contact, sub_total, vat, total_amount, discount, grand_total, paid, due, calle, colina, ciudad, fecha_add, hora_add FROM orders_user WHERE order_id = $orderId";
 
 $orderResult = $connect->query($sql);
 $orderData = $orderResult->fetch_array();
@@ -24,7 +24,7 @@ $discount = $orderData[6];
 $grandTotal = $orderData[7];
 $paid = $orderData[8];
 $due = $orderData[9];
-
+$fecha_add = $orderData[13];
 
 $orderItemSql = "SELECT order_user_item.product_id, order_user_item.rate, order_user_item.quantity, order_user_item.total,
 product.product_name FROM order_user_item
@@ -37,7 +37,8 @@ $orderItemResult = $connect->query($orderItemSql);
 	<thead>
 		<tr >
 			<th colspan="5">
-				<center>Fecha : '.$orderDate.'</center>
+				<center>Fecha  del registro : '.$fecha_add.'</center>
+				<center>Fecha de la orden : '.$orderDate.'</center>
 				<center>Nombre completo : '.$clientName.'</center>
 				<center>Teléfono : '.$clientContact.'</center>
 				<center>Calle : '.$calle.'</center>

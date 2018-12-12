@@ -41,6 +41,13 @@ $rowData = $resData->fetch_array();
 		<form class="form-horizontal" method="POST" action="php_action/pdv/editPuntoDeVenta.php" id="editOrderFormVentas">
 
 			<div class="form-group">
+			    <label for="fecha_add" class="col-sm-2 control-label">Fecha:</label>
+			    <div class="col-sm-4">
+			    	<input type="text" name="fecha_add" id="fecha_add" autocomplete="off"  class="form-control"  value="<?php echo $rowData['fecha_add']; ?>" disabled/>	
+			    </div>
+			</div> <!--/form-group-->
+
+			<div class="form-group">
 			    <label for="codCte" class="col-sm-2 control-label">Código del Cliente:</label>
 			    <div class="col-sm-4">
 			    	<input type="text" name="codCte" id="codCte" autocomplete="off"  class="form-control"  value="<?php echo $rowData['client_id']; ?>" />	

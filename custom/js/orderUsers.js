@@ -13,7 +13,7 @@ $(document).ready(function() {
 		$('#topNavAddOrder').addClass('active');	
 
 		// order date picker
-		$("#orderDate").datepicker();
+		$("#orderDate").datepicker({ dateFormat: "yy/mm/dd" });
 
 		// create order form function
 		$("#createOrderForm").unbind('submit').bind('submit', function() {
@@ -201,7 +201,7 @@ $(document).ready(function() {
 		});		
 					
 	} else if(divRequest == 'editOrd') {
-		$("#orderDate").datepicker();
+		$("#orderDate").datepicker({ dateFormat: "yy/mm/dd" });
 
 		// edit order form function
 		$("#editOrderForm").unbind('submit').bind('submit', function() {
@@ -749,7 +749,7 @@ function removeOrder(orderId = null) {
 function paymentOrder(orderId = null) {
 	if(orderId) {
 
-		$("#orderDate").datepicker();
+		$("#orderDate").datepicker({ dateFormat: "yy/mm/dd" });
 
 		$.ajax({
 			url: 'php_action/fetchOrderUsersData.php',

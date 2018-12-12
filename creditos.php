@@ -20,7 +20,7 @@
 				<div class="remove-messages"></div>
 
 				<div class="div-action pull pull-right" style="padding-bottom:40px;">
-					<button class="btn btn-primary btn-success" data-toggle="modal" data-target="#addSucursalesModel"> <i class="glyphicon glyphicon-plus"></i> Agregar Crédito </button>
+					<button class="btn btn-primary btn-success" data-toggle="modal" data-target="#addCreditosModel"> <i class="glyphicon glyphicon-plus"></i> Agregar Crédito </button>
 				</div> <!-- /div-action -->				
 				
 				<table class="table" id="manageCreditosTable">

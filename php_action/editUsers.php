@@ -18,7 +18,7 @@ if($_POST) {
     }
     $usersName = strtolower($usersName);
 
-    $sqlUsername = "SELECT * FROM users WHERE username = '$usersName'";
+    $sqlUsername = "SELECT * FROM users WHERE username = '$usersName' and user_id != $usersId";
 	$result = $connect->query($sqlUsername);
 
 	if($result->num_rows > 0) { 

@@ -5,8 +5,9 @@ require_once '../config/core.php';
 $valid['success'] = array('success' => false, 'messages' => array(), 'order_id' => '');
 // print_r($valid);
 if($_POST) {	
-
-	$orderDate 		= date('Y-m-d', strtotime($_POST['orderDate']));	
+	$fecha = date('d/m/Y');
+  	$hora = date('H:i:s', time());
+	$orderDate 		= date('d/m/Y', strtotime($_POST['orderDate']));	
     $clientName 	= $_POST['clientName'];
 
 	$clientContact 	= $_POST["clientContact"];
@@ -25,7 +26,7 @@ if($_POST) {
 	$paymentStatus 	= $_POST['paymentStatus'];
 
 
-	$sql = "INSERT INTO orders_user (order_date, client_name, client_contact, colina, calle, ciudad, sub_total, vat, total_amount, discount, grand_total, paid, due, payment_type, payment_status, order_status) VALUES ('$orderDate', '$clientName', '$clientContact', '$colonia', '$calle', '$ciudad', '$subTotalValue', '$vatValue', '$totalAmountValue', '$discount', '$grandTotalValue', '$paid', '$dueValue', $paymentType, $paymentStatus, 1)";
+	$sql = "INSERT INTO orders_user (fecha_add, hora_add, order_date, client_name, client_contact, colina, calle, ciudad, sub_total, vat, total_amount, discount, grand_total, paid, due, payment_type, payment_status, order_status) VALUES ('$fecha', '$hora', '$orderDate', '$clientName', '$clientContact', '$colonia', '$calle', '$ciudad', '$subTotalValue', '$vatValue', '$totalAmountValue', '$discount', '$grandTotalValue', '$paid', '$dueValue', $paymentType, $paymentStatus, 1)";
 	
 	$order_id;
 	$orderStatus = false;

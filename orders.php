@@ -260,7 +260,7 @@ if($_GET['o'] == 'add') {
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Fecha</th>
+						<th>Fecha del registro</th>
 						<th>Cliente</th>
 						<th>Teléfono</th>
 						<th>Total de productos</th>
@@ -284,7 +284,7 @@ if($_GET['o'] == 'add') {
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Fecha</th>
+						<th>Fecha del registro</th>
 						<th>Cliente</th>
 						<th>Teléfono</th>
 						<th>Total de productos</th>
@@ -306,12 +306,19 @@ if($_GET['o'] == 'add') {
 
   			<?php $orderId = $_GET['i'];
 
-  			$sql = "SELECT orders.order_id, orders.order_date, orders.client_name, orders.client_contact, orders.sub_total, orders.vat, orders.total_amount, orders.discount, orders.grand_total, orders.paid, orders.due, orders.payment_type, orders.payment_status FROM orders 	
+  			$sql = "SELECT orders.order_id, orders.order_date, orders.client_name, orders.client_contact, orders.sub_total, orders.vat, orders.total_amount, orders.discount, orders.grand_total, orders.paid, orders.due, orders.payment_type, orders.payment_status, orders.fecha_add, orders.hora_add FROM orders 	
 					WHERE orders.order_id = {$orderId}";
 
 				$result = $connect->query($sql);
 				$data = $result->fetch_row();				
   			?>
+
+			  <div class="form-group">
+			    <label for="fecha_add" class="col-sm-2 control-label">Fecha del registro</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" id="fecha_add" name="fecha_add" autocomplete="off" value="<?php echo $data[13] ?>" disabled/>
+			    </div>
+			  </div> <!--/form-group-->
 
 			  <div class="form-group">
 			    <label for="orderDate" class="col-sm-2 control-label">Fecha de orden</label>

@@ -216,7 +216,7 @@ require_once 'includes/header.php';
 				</div> <!--/form-group-->	
 				
 				<div class="form-group">
-			    <label for="orderDate" class="col-sm-4 control-label">Fecha Liquidación;</label>
+			    <label for="orderDate" class="col-sm-4 control-label">Fecha Liquidación:</label>
 			    <div class="col-sm-8">
 			      <input type="date" class="form-control" id="orderDate" name="orderDate" autocomplete="off" />
 			    </div>

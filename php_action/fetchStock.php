@@ -1,14 +1,17 @@
 <?php
 
 require_once '../config/core.php';
-
+$add_query = "";
+if ($_SESSION['rol'] != 1) {
+	$add_query = " AND product.active = 1";
+}
 $sql = "SELECT product.product_id, product.product_name, product.product_image, product.brand_id,
  		product.categories_id, product.quantity, product.price_mayoreo, product.rate, 
  		product.active, product.status, brands.brand_name, categories.categories_name 
  		FROM product 
 		INNER JOIN brands ON product.brand_id = brands.brand_id 
 		INNER JOIN categories ON product.categories_id = categories.categories_id  
-		WHERE product.status = 1";
+		WHERE product.status = 1 ".$add_query;
 
 $result = $connect->query($sql);
 

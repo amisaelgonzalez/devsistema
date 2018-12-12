@@ -5,8 +5,9 @@ require_once '../config/core.php';
 $valid['success'] = array('success' => false, 'messages' => array(), 'order_id' => '');
 // print_r($valid);
 if($_POST) {	
-
-	$orderDate 		= date('Y-m-d', strtotime($_POST['orderDate']));	
+	$fecha = date('d/m/Y');
+  	$hora = date('H:i:s', time());
+	$orderDate 		= date('d/m/Y', strtotime($_POST['orderDate']));	
     $clientName 	= $_POST['clientName'];
 	$clientContact 	= $_POST['clientContact'];
 	$subTotalValue 	= $_POST['subTotalValue'];
@@ -18,7 +19,7 @@ if($_POST) {
 	$dueValue 		= $_POST['dueValue'];
 	$paymentType 	= $_POST['paymentType'];
 	$paymentStatus 	= $_POST['paymentStatus'];
-
+	$id_user   	    = $_SESSION["iduser"];
 	
 	$sqlCanSuc = "SELECT sucursales_creditos FROM sucursales WHERE sucursales_id = $clientName";
 	$result = $connect->query($sqlCanSuc);
@@ -27,7 +28,7 @@ if($_POST) {
 		$row = $result->fetch_array();
 		if ($row[0] >= $totalAmountValue) {
 
-			$sql = "INSERT INTO orders (order_date, client_name, client_contact, sub_total, vat, total_amount, discount, grand_total, paid, due, payment_type, payment_status, order_status) VALUES ('$orderDate', '$clientName', '$clientContact', '$subTotalValue', '$vatValue', '$totalAmountValue', '$discount', '$grandTotalValue', '$paid', '$dueValue', $paymentType, $paymentStatus, 1)";
+			$sql = "INSERT INTO orders (fecha_add, hora_add, order_date, client_name, client_contact, sub_total, vat, total_amount, discount, grand_total, paid, due, payment_type, payment_status, order_status, user_add_id) VALUES ('$fecha', '$hora', '$orderDate', '$clientName', '$clientContact', '$subTotalValue', '$vatValue', '$totalAmountValue', '$discount', '$grandTotalValue', '$paid', '$dueValue', $paymentType, $paymentStatus, 1, '$id_user')";
 			
 			
 			$order_id;

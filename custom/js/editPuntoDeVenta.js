@@ -6,7 +6,7 @@ $(document).ready(function() {
 	// sub manin
 	$("#topNavAddOrder").addClass('active');
 
-	$("#orderDate").datepicker({ dateFormat: "dd/mm/yy" });
+	$("#orderDate").datepicker({ dateFormat: "yy/mm/dd" });
 	//$("#codCte").focus();
 
 	// create order form function

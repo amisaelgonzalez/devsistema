@@ -7,7 +7,7 @@ $valid['success'] = array('success' => false, 'messages' => array());
 if($_POST) {
 	$orderId = $_POST['orderId'];
 
-	$orderDate 		= date('Y-m-d', strtotime($_POST['orderDate']));
+	$orderDate 		= date('d/m/Y', strtotime($_POST['orderDate']));
 
 	$clientName 	= $_POST['clientName'];
 	$clientContact 	= $_POST['clientContact'];
