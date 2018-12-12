@@ -11,11 +11,20 @@ if($_POST) {
     $usersEmail = $_POST['editEmail'];
     $usersRol = $_POST['editRol'];
     $usersId = $_POST['usersId'];
-    if ($usersRol != 2) {
-    	$editSucursal = null;
-    }else{
-	    $editSucursal = $_POST['editSucursal'];
-    }
+
+    switch ($usersRol) {
+		case '1':
+    		$editSucursal = null;
+			break;
+		case '4':
+    		$editSucursal = null;
+			break;
+		default:
+		    $editSucursal = $_POST['editSucursal'];
+			break;	
+	}
+
+
     $usersName = strtolower($usersName);
 
     $sqlUsername = "SELECT * FROM users WHERE username = '$usersName' and user_id != $usersId";
