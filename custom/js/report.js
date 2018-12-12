@@ -3,6 +3,7 @@ $(document).ready(function() {
 	$("#startDate").datepicker();
 	// order date picker
 	$("#endDate").datepicker();
+	$('#navReport').addClass('active');
 
 	$("#getOrderReportForm").unbind('submit').bind('submit', function() {
 		

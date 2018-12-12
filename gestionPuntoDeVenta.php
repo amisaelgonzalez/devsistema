@@ -2,7 +2,13 @@
 header('Content-Type: text/html; charset=UTF-8');
 require_once 'config/db_connect.php'; 
 require_once 'includes/header.php'; 
+$valueUserId = "";
+if (isset($_GET['user_id'])){
+	$valueUserId = $_GET['user_id'];
+}
 ?>
+
+<input type="hidden" name="userIdFilter" id="userIdFilter" autocomplete="off" value="<?php echo $valueUserId;?>" />
 
 
 <div class="row">
@@ -41,10 +47,29 @@ require_once 'includes/header.php';
 
 					<div class="remove-messages"></div>
 
+					<div class="row" style="padding: 0px 15px;">
+						<select class="col-md-3 mdl-textfield__input js-example-basic-single" id="selectid" name="selectid">
+						  <option value="">Seleccione</option>
+							<?php 
+						  	$sql = "SELECT user_id, email FROM users";
+									$result = $connect->query($sql);
+
+									while($row = $result->fetch_array()) {
+										if ($data[2] == $row[0]) {
+											echo "<option value='".$row[0]."' selected>".$row[1]."</option>";
+										} else {
+											echo "<option value='".$row[0]."'>".$row[1]."</option>";
+										}
+									} // while
+						  	?>
+						</select>
+						<button type="submit" onclick="filtarVenta()" id="editOrderBtn" data-loading-text="Cargando..." class="btn btn-default button1"><i class="glyphicon glyphicon-search"></i>Filtrar</button>	
+					
+					
 					<div class="div-action pull pull-right" style="padding-bottom:20px;">
 						<a href="puntoDeVenta.php"><button class="btn btn-default button1"> <i class="glyphicon glyphicon-plus-sign"></i> Agregar Orden </button></a>
 					</div> <!-- /div-action -->	
-
+					</div>
 					<table class="table" id="manageOrderTableVentas">
 						<thead>
 							<tr>

@@ -16,7 +16,14 @@ if($_GET['o'] == 'add') {
 } // /else manage order
 
 
+$valueUserId = "";
+if (isset($_GET['user_id'])){
+	$valueUserId = $_GET['user_id'];
+}
 ?>
+
+<input type="hidden" name="userIdFilter" id="userIdFilter" autocomplete="off" value="<?php echo $valueUserId;?>" />
+
 
 <ol class="breadcrumb">
   <li><a href="dashboard.php">Inicio</a></li>
@@ -256,6 +263,25 @@ if($_GET['o'] == 'add') {
 
 			<div id="success-messages"></div>
 			
+			<div class="row" style="padding: 0px 15px;">
+				<select class="col-md-3 mdl-textfield__input js-example-basic-single" id="selectid" name="selectid">
+				  <option value="">Seleccione</option>
+					<?php 
+				  	$sql = "SELECT user_id, email FROM users";
+							$result = $connect->query($sql);
+
+							while($row = $result->fetch_array()) {
+								if ($data[2] == $row[0]) {
+									echo "<option value='".$row[0]."' selected>".$row[1]."</option>";
+								} else {
+									echo "<option value='".$row[0]."'>".$row[1]."</option>";
+								}
+							} // while
+				  	?>
+				</select>
+				<button type="submit" onclick="filtarVenta()" id="editOrderBtn" data-loading-text="Cargando..." class="btn btn-default button1"><i class="glyphicon glyphicon-search"></i>Filtrar</button>	
+			</div>
+
 			<table class="table" id="manageOrderTable">
 				<thead>
 					<tr>
@@ -624,6 +650,6 @@ if($_GET['o'] == 'add') {
 <!-- /remove order-->
 
 
-<script src="custom/js/order.js"></script>
+<script src="custom/js/order.js?ver=1.0.1"></script>
 <?php require_once 'includes/footer.php'; ?>
 <?php }else{ echo "<script> alert('Su usuario no posee los permisos para entrar en esta vista, usted sera redireccionado.'); window.location.href = 'index.php' </script>";} ?>

@@ -2,6 +2,12 @@ var manageOrderTable;
 
 $(document).ready(function() {
 
+	$('.js-example-basic-single').select2();
+
+	var user_id = $('input#userIdFilter').val();
+	console.log("user_id:",user_id);
+
+
 	var divRequest = $(".div-request").text();
 
 	// top nav bar 
@@ -13,7 +19,7 @@ $(document).ready(function() {
 		$('#topNavAddOrder').addClass('active');	
 
 		// order date picker
-		$("#orderDate").datepicker({ dateFormat: "yy/mm/dd" });
+		$("#orderDate").datepicker({ dateFormat: "dd/mm/yy" });
 
 		// create order form function
 		$("#createOrderForm").unbind('submit').bind('submit', function() {
@@ -175,9 +181,15 @@ $(document).ready(function() {
 		$('#topNavManageOrder').addClass('active');
 
 		manageOrderTable = $("#manageOrderTable").DataTable({
-			'ajax': 'php_action/fetchOrder.php',
-			'order': []
-		});		
+			"ajax": {
+	        'type': 'POST',
+	        'url': 'php_action/fetchOrder.php',
+	        'data': {
+	           data: user_id
+	        },
+	    },
+		'order': []
+		});
 					
 	} else if(divRequest == 'calendarEvent') {
 		// top nav child bar 
@@ -188,7 +200,7 @@ $(document).ready(function() {
 		});		
 					
 	} else if(divRequest == 'editOrd') {
-		$("#orderDate").datepicker({ dateFormat: "yy/mm/dd" });
+		$("#orderDate").datepicker({ dateFormat: "dd/mm/yy" });
 
 		// edit order form function
 		$("#editOrderForm").unbind('submit').bind('submit', function() {
@@ -712,7 +724,7 @@ function removeOrder(orderId = null) {
 function paymentOrder(orderId = null) {
 	if(orderId) {
 
-		$("#orderDate").datepicker({ dateFormat: "yy/mm/dd" });
+		$("#orderDate").datepicker({ dateFormat: "dd/mm/yy" });
 
 		$.ajax({
 			url: 'php_action/fetchOrderData.php',
@@ -810,3 +822,11 @@ function paymentOrder(orderId = null) {
 		alert('Error ! Refresh the page again');
 	}
 }
+
+	function filtarVenta() {
+		//alert("dd");
+		var id = $('#selectid').val();
+		console.log(id);
+		window.location.href = "orders.php?o=manord&user_id="+id;
+	}
+

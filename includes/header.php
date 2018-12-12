@@ -34,8 +34,10 @@
   <!-- Fuente de Google -->
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 </head>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -210,14 +212,12 @@ switch ($_SESSION['rol']) {
           </ul>
         </li> 
 
->
-
-
         <li class="dropdown" id="navPedidoSucursal">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-list-alt"></i> Stock <span class="caret"></span></a>
           <ul class="dropdown-menu">
 
-            <li id="navProduct"><a href="stock.php"> <i class="glyphicon glyphicon-ruble"></i> Stock </a></li>
+            <li id="navStockPropio"><a href="mi_stock_propio.php"> <i class="glyphicon glyphicon-ruble"></i> Mi stock </a></li>
+            <li id="navProduct"><a href="stock.php"> <i class="glyphicon glyphicon-ruble"></i> Stock general </a></li>
             <li id="topNavStockPorSucursal"><a href="stock_sucursal.php"> <i class="glyphicon glyphicon-list-alt"></i> Stock por sucursal</a></li>
          
           </ul>
@@ -248,11 +248,11 @@ switch ($_SESSION['rol']) {
 
         <li id="navDashboard"><a href="dashboard.php"><i class="glyphicon glyphicon-list-alt"></i>  Inicio</a></li> 
 
-        <li class="dropdown" id="navOrder">
+        <li class="dropdown" id="navOrderPdv">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-shopping-cart"></i> Punto de venta <span class="caret"></span></a>
           <ul class="dropdown-menu">            
-            <li id="topNavAddOrder"><a href="puntoDeVenta.php"> <i class="glyphicon glyphicon-plus"></i> Agregar Venta</a></li>            
-            <li id="topNavManageOrder"><a href="gestionPuntoDeVenta.php"> <i class="glyphicon glyphicon-edit"></i> Gestionar Ordenes</a></li>          
+            <li id="topNavAddOrderPdv"><a href="puntoDeVenta.php"> <i class="glyphicon glyphicon-plus"></i> Agregar Venta</a></li>            
+            <li id="topNavManageOrderPdv"><a href="gestionPuntoDeVenta.php"> <i class="glyphicon glyphicon-edit"></i> Gestionar Ordenes</a></li>          
           </ul>
         </li>       
         
@@ -264,7 +264,9 @@ switch ($_SESSION['rol']) {
           </ul>
         </li> 
 
-        <li id="navReport"><a href="clientPuntoDeVenta.php"> <i class="glyphicon glyphicon-user"></i> Clientes </a></li>
+        <li id="navClient"><a href="clientPuntoDeVenta.php"> <i class="glyphicon glyphicon-user"></i> Clientes </a></li>
+
+        <li id="navStockUsers"><a href="mi_stock_users.php"> <i class="glyphicon glyphicon-ruble"></i> Stock </a></li>
 
         <li id="navReport"><a href="report.php"> <i class="glyphicon glyphicon-check"></i> Reportes </a></li>
 

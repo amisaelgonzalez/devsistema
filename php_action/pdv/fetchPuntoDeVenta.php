@@ -2,12 +2,17 @@
 
 require_once '../../config/core.php';
 
+$query_add = "";
+if ($_POST['data'] != "") {
+	$query_add = "AND orders.user_add_id = ".$_POST['data'];
+}
+
 $sql = "SELECT orders.id_order, orders.fecha_add, orders.hora_add, orders.client_id, orders.monto, orders.saldo, orders.total, orders.tipo_orden, orders.estado,
         client.id_client, client.nombre_cte
 		FROM orders_pdv as orders
 		INNER JOIN client	
 		ON orders.client_id = client.id_client
-		WHERE orders.tipo_orden = 2 
+		WHERE orders.tipo_orden = 2 ".$query_add." 
 		ORDER BY orders.id_order DESC";
 
 $result = $connect->query($sql);

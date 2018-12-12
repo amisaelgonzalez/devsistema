@@ -5,13 +5,24 @@ var manageOrderTableConsig;
 
 $(document).ready(function() {
 
+	$('.js-example-basic-single').select2();
+
+	var user_id = $('input#userIdFilter').val();
+	console.log("user_id:",user_id);
+
 	// top nav bar 
-	$('#navOrder').addClass('active');
+	$('#navOrderPdv').addClass('active');
 	// sub manin
-	$("#topNavManageOrder").addClass('active');
+	$("#topNavManageOrderPdv").addClass('active');
 	// manage ventas data table
 	manageOrderTableVentas = $('#manageOrderTableVentas').DataTable({
-		'ajax': 'php_action/pdv/fetchPuntoDeVenta.php',
+	    "ajax": {
+	        'type': 'POST',
+	        'url': 'php_action/pdv/fetchPuntoDeVenta.php',
+	        'data': {
+	           data: user_id
+	        },
+	    },
 		'order': []
 	});
 
@@ -23,7 +34,13 @@ $(document).ready(function() {
 		'order': []
 	});
 
+
 });// document.ready fucntion
 
-
+	function filtarVenta() {
+		//alert("dd");
+		var id = $('#selectid').val();
+		console.log(id);
+		window.location.href = "gestionPuntoDeVenta.php?user_id="+id;
+	}
 

@@ -2,9 +2,9 @@ var manageOrderTable;
 
 $(document).ready(function() {
 	// top nav bar 
-	$("#navOrder").addClass('active');
+	$("#navOrderPdv").addClass('active');
 	// sub manin
-	$("#topNavAddOrder").addClass('active');
+	$("#topNavAddOrderPdv").addClass('active');
 
 	// create order form function
 	$("#createOrderForm").unbind('submit').bind('submit', function() {
