@@ -2,7 +2,7 @@
 <?php require_once 'includes/header.php'; ?>
 <?php require_once 'modal/stockPorSucursalModal.php'; ?>
 <?php include ("notification.php"); ?>
-<?php if ($_SESSION['rol'] == 2) { ?>
+<?php if ($_SESSION['rol'] == 2 || $_SESSION['rol'] == 3) { ?>
 
 <div class="row">
 	<div class="col-md-12">
@@ -17,7 +17,12 @@
 			    <div class="col-xs-12 col-sm-8" style="padding-left: 0px !important;padding-right: 0px !important;">
 			      <select class="form-control" id="sucursal" name="sucursal" onchange="buscarScursal();">
 			      	<?php 
-			      	$sql = "SELECT sucursales_id, sucursales_name FROM sucursales WHERE sucursales_status = 1";
+
+			      	if ($_SESSION['rol'] == 2) {
+			      		$sql = "SELECT sucursales_id, sucursales_name FROM sucursales WHERE sucursales_status = 1";
+			      	}else{
+			      		$sql = "SELECT sucursales_id, sucursales_name FROM sucursales WHERE sucursales_status = 1 and sucursales_id=".$_SESSION['sucursales_id'];
+			      	}
 							$result = $connect->query($sql);
 							$i = 0;
 							while($row = $result->fetch_array()) {

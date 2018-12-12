@@ -133,7 +133,8 @@ $(document).ready(function() {
 });
 
 function habilitarCombo(valor){
-	if(valor==2){
+
+	if(valor==2 || valor==3){
 		document.getElementById("divSucursal").style.display = 'block';
 		document.getElementById("divEditSucursal").style.display = 'block';
 	} else {
@@ -182,9 +183,8 @@ function editUsers(usersId = null) {
 				$('#editRol').val(response.rol);
 				// setting the users sucursal value
 				$('#editSucursal').val(response.sucursales_id);
-
-				if (response.rol == 2) {
-					habilitarCombo(2);
+				if (response.rol == 2 || response.rol == 3) {
+					habilitarCombo(response.rol);
 				}else{
 					habilitarCombo(1);
 				}

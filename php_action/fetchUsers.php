@@ -37,6 +37,8 @@ if($result->num_rows > 0) {
 		$sucursalUsers = $row[6];		
 	}elseif ($row[3] == 3) {
 		$rolUsers = "Usuario";
+				$sucursalUsers = $row[6];		
+
 	}elseif ($row[3] == 4) {
 		$rolUsers = "Adminstrador créditos";
 	}

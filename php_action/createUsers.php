@@ -10,10 +10,17 @@ if($_POST) {
 	$password = md5($_POST['password']);
     $usersEmail = $_POST['email'];
     $usersRol = $_POST['rol'];
-	$sucursal =  $_POST['sucursal'];;
-    if ($usersRol != 2) {
-    	$sucursal = null;
-    }
+	$sucursal =  $_POST['sucursal'];
+	switch ($usersRol) {
+		case '1':
+    		$sucursal = null;
+			break;
+		
+		case '4':
+    		$sucursal = null;
+			break;
+	}
+
     $user_id = $_SESSION['userId'];
     $usersName = strtolower($usersName);
 
