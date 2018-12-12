@@ -9,7 +9,8 @@ function addProductoSucursal() {
 
 $(document).ready(function() {
 	// top nav bar 
-	$('#navMiStock').addClass('active');
+	$('#navStockMenu').addClass('active');
+	$('#navMiStockPropio').addClass('active');
 	// manage miStock data table
 	manageMiStockTable = $('#manageMiStockTable').DataTable({
 		'ajax': 'php_action/fetchMiStockUsers.php',

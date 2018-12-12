@@ -2,6 +2,7 @@ var manageCreditosTable;
 
 $(document).ready(function() {
 	// top bar active
+	$('#navOrder').addClass('active');
 	$('#navCreditos').addClass('active');
 	
 	// manage creditos table

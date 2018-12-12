@@ -2,7 +2,8 @@ var manageMiStockTable;
 
 $(document).ready(function() {
 	// top nav bar 
-	$('#navMiStock').addClass('active');
+	$('#navStockMenu').addClass('active');
+	$('#topNavMiStock').addClass('active');
 	// manage miStock data table
 	manageMiStockTable = $('#manageMiStockTable').DataTable({
 		'ajax': 'php_action/fetchMiStock.php',

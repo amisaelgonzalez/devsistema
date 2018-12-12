@@ -2,6 +2,7 @@ var manageProductTable;
 
 $(document).ready(function() {
 	// top nav bar 
+	$('#navStockMenu').addClass('active');
 	$('#navProduct').addClass('active');
 	// manage product data table
 	manageProductTable = $('#manageProductTable').DataTable({

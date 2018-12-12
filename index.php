@@ -12,7 +12,7 @@ if(isset($_SESSION['userId'])) {
 			header('location: dashboard_sucursales.php');
 			break;
 		case '3':
-			header('location: stock.php');
+			header('location: mi_stock_propio.php');
 			break;
 		case '4':
 			header('location: orders.php?o=manord');
@@ -77,7 +77,7 @@ if($_POST) {
 	                if ($_SESSION['rol'] == 1 || $_SESSION['rol'] == 4) {
 						header('location: dashboard.php');
 	                }elseif ($_SESSION['rol'] == 3) {
-	                	header('location: stock.php');
+	                	header('location: mi_stock_propio.php');
 	                }
 				}else{
 					$errors[] = "La sucursal que administra ha sido eliminada";

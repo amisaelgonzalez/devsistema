@@ -2,7 +2,8 @@ var manageStockGeneralTable;
 
 $(document).ready(function() {
 	// top nav bar 
-	$('#navStockGeneral').addClass('active');
+	$('#navStockMenu').addClass('active');
+	$('#topNavStockGeneral').addClass('active');
 	// manage stockGeneral data table
 	manageStockGeneralTable = $('#manageStockGeneralTable').DataTable({
 		'ajax': 'php_action/fetchStockGeneral.php',

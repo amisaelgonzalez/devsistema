@@ -88,11 +88,11 @@ switch ($_SESSION['rol']) {
           </ul>
         </li> -->
         
-        <li class="dropdown" id="navOrder">
+        <li class="dropdown" id="navOrderPdv">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-shopping-cart"></i> Punto de venta <span class="caret"></span></a>
           <ul class="dropdown-menu">            
-            <li id="topNavAddOrder"><a href="puntoDeVenta.php"> <i class="glyphicon glyphicon-plus"></i> Agregar Venta</a></li>            
-            <li id="topNavManageOrder"><a href="gestionPuntoDeVenta.php"> <i class="glyphicon glyphicon-edit"></i> Gestionar Ordenes</a></li>          
+            <li id="topNavAddOrderPdv"><a href="puntoDeVenta.php"> <i class="glyphicon glyphicon-plus"></i> Agregar Venta</a></li>            
+            <li id="topNavManageOrderPdv"><a href="gestionPuntoDeVenta.php"> <i class="glyphicon glyphicon-edit"></i> Gestionar Ordenes</a></li>          
           </ul>
         </li> 
         
@@ -160,7 +160,7 @@ switch ($_SESSION['rol']) {
           </ul>
         </li> 
 
-        <li class="dropdown" id="navPedidoSucursal">
+        <li class="dropdown" id="navStockMenu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-list-alt"></i> Stock <span class="caret"></span></a>
           <ul class="dropdown-menu">
             
@@ -168,7 +168,7 @@ switch ($_SESSION['rol']) {
 
             <li id="topNavStockGeneral"><a href="stock_general.php"> <i class="glyphicon glyphicon-list-alt"></i> Stock general</a></li>
 
-            <li id="topNavStockPorSucursal"><a href="stock_sucursal.php"> <i class="glyphicon glyphicon-list-alt"></i> Stock por sucursal</a></li>
+            <li id="navStockPorSucursal"><a href="stock_sucursal.php"> <i class="glyphicon glyphicon-list-alt"></i> Stock por sucursal</a></li>
          
           </ul>
         </li>
@@ -204,21 +204,21 @@ switch ($_SESSION['rol']) {
 <ul class="nav navbar-nav navbar-right">
 
 
-        <li class="dropdown" id="navOrder">
+        <li class="dropdown" id="navOrderPdv">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-shopping-cart"></i> Punto de venta <span class="caret"></span></a>
           <ul class="dropdown-menu">            
-            <li id="topNavAddOrder"><a href="puntoDeVenta.php"> <i class="glyphicon glyphicon-plus"></i> Agregar Venta</a></li>            
-            <li id="topNavManageOrder"><a href="gestionPuntoDeVenta.php"> <i class="glyphicon glyphicon-edit"></i> Gestionar Ordenes</a></li>          
+            <li id="topNavAddOrderPdv"><a href="puntoDeVenta.php"> <i class="glyphicon glyphicon-plus"></i> Agregar Venta</a></li>            
+            <li id="topNavManageOrderPdv"><a href="gestionPuntoDeVenta.php"> <i class="glyphicon glyphicon-edit"></i> Gestionar Ordenes</a></li>          
           </ul>
         </li> 
 
-        <li class="dropdown" id="navPedidoSucursal">
+        <li class="dropdown" id="navStockMenu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-list-alt"></i> Stock <span class="caret"></span></a>
           <ul class="dropdown-menu">
 
-            <li id="navStockPropio"><a href="mi_stock_propio.php"> <i class="glyphicon glyphicon-ruble"></i> Mi stock </a></li>
+            <li id="navMiStockPropio"><a href="mi_stock_propio.php"> <i class="glyphicon glyphicon-ruble"></i> Mi stock </a></li>
             <li id="navProduct"><a href="stock.php"> <i class="glyphicon glyphicon-ruble"></i> Stock general </a></li>
-            <li id="topNavStockPorSucursal"><a href="stock_sucursal.php"> <i class="glyphicon glyphicon-list-alt"></i> Stock por sucursal</a></li>
+            <li id="navStockPorSucursal"><a href="stock_sucursal.php"> <i class="glyphicon glyphicon-list-alt"></i> Stock por sucursal</a></li>
          
           </ul>
         </li>

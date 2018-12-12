@@ -5,6 +5,7 @@ $(document).ready(function() {
 	var divRequest = $(".div-request").text();
 
 	// top nav bar 
+	$("#navOrder").addClass('active');
 	$("#navPedidoSucursalListado").addClass('active');
 
 	if(divRequest == 'manord') {

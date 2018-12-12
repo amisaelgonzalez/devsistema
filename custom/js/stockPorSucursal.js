@@ -1,6 +1,7 @@
 var manageStockPorSucursalTable;
 $(document).ready(function() {
 	// top nav bar 
+	$('#navStockMenu').addClass('active');
 	$('#navStockPorSucursal').addClass('active');
 	// manage stockPorSucursal data table
 	manageStockPorSucursalTable = $('#manageStockPorSucursalTable').DataTable({
